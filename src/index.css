@@ -142,3 +142,21 @@ li span.active::before{
   border-radius: 50%;
   background: #fff;
 }
+
+.dragContainer {
+
+  width:200px;
+  height:200px;
+  background-color: rgba(255, 255, 255, 0.082);
+  margin: 10px auto;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.draggable {
+  width: 100px;
+  height: 100px;
+  cursor: grab;
+}

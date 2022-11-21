@@ -41,7 +41,7 @@ const Home = () => {
 
         >
             <h2>
-                Welcome to Pizza Joint
+                Welcome to Pizza Home
             </h2>
             <Link to="/base">
                 <motion.button
@@ -52,6 +52,20 @@ const Home = () => {
                 </motion.button>
             </Link>
             <Loader />
+
+            <div className='dragContainer'>
+                <motion.img
+                    src="pizza.png"
+                    className="draggable"
+                    drag
+                    dragConstraints={{ left: -50, top: -50, right: 50, bottom: 50 }}
+                    dragElastic={1}
+                >
+
+                </motion.img>
+            </div>
+
+
         </motion.div >
     )
 }
