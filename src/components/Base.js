@@ -11,6 +11,10 @@ const containerVariants = {
     opacity: 1,
     x: 0,
     transition: { type: 'spring', delay: 0.5 },
+  },
+  exit: {
+    x: '-100vw',
+    transition: { ease: 'easeInOut' }
   }
 }
 
@@ -23,7 +27,18 @@ const nextVariants = {
     x: 0,
     transition: { type: 'spring', stiffness: 120 },
   }
+}
 
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    transition: {
+      duration: 0.3,
+      yoyo: Infinity, // this will repeat the animation forever
+    }
+  }
 }
 
 const Base = ({ addBase, pizza }) => {
@@ -34,6 +49,7 @@ const Base = ({ addBase, pizza }) => {
       variants={containerVariants}
       initial="initial"
       animate="final"
+      exit="exit"
     >
 
       <h3>Step 1: Choose Your Base</h3>
@@ -62,11 +78,8 @@ const Base = ({ addBase, pizza }) => {
         >
           <Link to="/toppings">
             <motion.button
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0px 0px 8px rgb(255,255,255)",
-                boxShadow: "0px 0px 8px rgb(255,255,255)"
-              }}
+              variants={buttonVariants}
+              whileHover="hover"
             >
               Next
             </motion.button>
